@@ -1,0 +1,40 @@
+{
+    "name": "saeedvaziry/laravel-async",
+    "description": "Laravel Async",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Saeed Vaziry",
+            "email": "mr.saeedvaziry@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0|^10.0",
+        "illuminate/process": "^9.0|^10.0",
+        "illuminate/console": "^9.0|^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SaeedVaziry\\LaravelAsync\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SaeedVaziry\\LaravelAsync\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
