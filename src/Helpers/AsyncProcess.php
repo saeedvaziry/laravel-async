@@ -22,7 +22,7 @@ class AsyncProcess
         }
 
         $this->command = sprintf(
-            'php %s laravel-async:exec %s 2>&1 > /dev/null & echo $!',
+            'php %s laravel-async:exec %s 2>&1 > /dev/null &',
             base_path('artisan'),
             escapeshellarg(serialize($object))
         );
@@ -44,6 +44,10 @@ class AsyncProcess
 
     public function exec(): void
     {
+        if ($this->timeout) {
+            $this->command .= ' echo $!';
+        }
+
         $result = Process::run($this->command);
 
         $pid = (int) $result->output();
