@@ -19,10 +19,8 @@ class LaravelAsyncServiceProvider extends ServiceProvider
 
     private function registerCommands(): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                ExecCommand::class,
-            ]);
-        }
+        $this->commands([
+            ExecCommand::class,
+        ]);
     }
 }
