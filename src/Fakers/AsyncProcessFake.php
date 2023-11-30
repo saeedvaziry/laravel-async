@@ -5,7 +5,6 @@ namespace SaeedVaziry\LaravelAsync\Fakers;
 use Laravel\SerializableClosure\SerializableClosure;
 use PHPUnit\Framework\Assert;
 
-
 class AsyncProcessFake
 {
     protected ?int $timeout = 60;
@@ -37,7 +36,6 @@ class AsyncProcessFake
             base_path('artisan'),
             escapeshellarg(serialize($object))
         );
-
 
         if ($this->timeout) {
             $command .= ' echo $!';

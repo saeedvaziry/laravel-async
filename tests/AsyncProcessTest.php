@@ -11,7 +11,7 @@ class AsyncProcessTest extends TestCase
         AsyncHandler::fake();
 
         AsyncHandler::dispatch(function () {
-            echo "test";
+            echo 'test';
         });
 
         AsyncHandler::assertDispatchedCounts(2);
@@ -24,7 +24,7 @@ class AsyncProcessTest extends TestCase
         AsyncHandler::fake();
 
         AsyncHandler::withoutTimeout()->dispatch(function () {
-            echo "test";
+            echo 'test';
         });
 
         AsyncHandler::assertDispatchedCounts(1);
@@ -35,7 +35,7 @@ class AsyncProcessTest extends TestCase
         AsyncHandler::fake();
 
         AsyncHandler::timeout(10)->dispatch(function () {
-            echo "test";
+            echo 'test';
         });
 
         AsyncHandler::assertDispatchedCounts(2);
