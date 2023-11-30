@@ -3,9 +3,7 @@
 Laravel Async is a simple package for Laravel that enables you to run your code asynchronously without using
 the workers and Supervisor!
 
-Unlike the Laravel Process or Symfony Process or other similar packages, You don't need to wait for the sub processes in the main process to finish!
-
-Like other programming languages such as Javascript or Golang you can put the code into the background of the OS.
+Unlike the Laravel Process, Symfony Process, or other similar packages, You don't need to wait for the sub-processes in the main process to finish!
 
 ```php
 use SaeedVaziry\LaravelAsync\Facades\AsyncHandler;
@@ -19,7 +17,7 @@ AsyncHandler::dispatch(function () {
 info("dispatched the process!");
 ```
 
-## How it is possible?
+## How it works?
 
 You can call it a hack or a trick! but Laravel Async uses the background process of the OS to run your code.
 
@@ -27,11 +25,11 @@ It provides a simple Laravel Console Command that unserializes your code and run
 
 ## Supported OS
 
-Currently, it only supports Linux and Unix based operating systems.
+Currently, it only supports Linux and Unix-based operating systems.
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via Composer:
 
 ```bash
 composer require saeedvaziry/laravel-async
