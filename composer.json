@@ -33,6 +33,16 @@
             "SaeedVaziry\\LaravelAsync\\Tests\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SaeedVaziry\\LaravelAsync\\LaravelAsyncServiceProvider"
+            ],
+            "aliases": {
+                "AsyncHandler": "SaeedVaziry\\LaravelAsync\\Facades\\AsyncHandler"
+            }
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
