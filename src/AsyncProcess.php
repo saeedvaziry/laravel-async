@@ -1,9 +1,8 @@
 <?php
 
-namespace SaeedVaziry\LaravelAsync\Helpers;
+namespace SaeedVaziry\LaravelAsync;
 
 use Illuminate\Support\Facades\Process;
-use Laravel\SerializableClosure\Exceptions\PhpVersionNotSupportedException;
 use Laravel\SerializableClosure\SerializableClosure;
 
 class AsyncProcess
@@ -11,22 +10,6 @@ class AsyncProcess
     protected ?int $timeout = 60;
 
     protected string $command;
-
-    /**
-     * @throws PhpVersionNotSupportedException
-     */
-    public function __construct(mixed $object)
-    {
-        if ($object instanceof \Closure) {
-            $object = new SerializableClosure($object);
-        }
-
-        $this->command = sprintf(
-            'php %s laravel-async:exec %s 2>&1 > /dev/null &',
-            base_path('artisan'),
-            escapeshellarg(serialize($object))
-        );
-    }
 
     public function withoutTimeout(): self
     {
@@ -42,7 +25,22 @@ class AsyncProcess
         return $this;
     }
 
-    public function exec(): void
+    public function dispatch(mixed $object): void
+    {
+        if ($object instanceof \Closure) {
+            $object = new SerializableClosure($object);
+        }
+
+        $this->command = sprintf(
+            'php %s laravel-async:exec %s 2>&1 > /dev/null &',
+            base_path('artisan'),
+            escapeshellarg(serialize($object))
+        );
+
+        $this->exec();
+    }
+
+    private function exec(): void
     {
         if ($this->timeout) {
             $this->command .= ' echo $!';

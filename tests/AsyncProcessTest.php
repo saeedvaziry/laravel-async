@@ -2,38 +2,44 @@
 
 namespace SaeedVaziry\LaravelAsync\Tests;
 
+use SaeedVaziry\LaravelAsync\Facades\AsyncHandler;
+
 class AsyncProcessTest extends TestCase
 {
-    public function testConstructWithClosure()
+    public function test_dispatch_with_default_timeout()
     {
-        $async = async(function () {
+        AsyncHandler::fake();
+
+        AsyncHandler::dispatch(function () {
             echo "test";
         });
 
-        $reflection = new \ReflectionClass($async);
+        AsyncHandler::assertDispatchedCounts(2);
 
-        $this->assertNotEmpty($reflection->getProperty('command')->getValue($async));
+        AsyncHandler::assertExecutedCommandContains('2>&1 > /dev/null &');
     }
 
-    public function testSetTimeout()
+    public function test_dispatch_without_timeout()
     {
-        $async = async(function () {
+        AsyncHandler::fake();
+
+        AsyncHandler::withoutTimeout()->dispatch(function () {
             echo "test";
-        })->timeout(10);
+        });
 
-        $reflection = new \ReflectionClass($async);
-
-        $this->assertEquals(10, $reflection->getProperty('timeout')->getValue($async));
+        AsyncHandler::assertDispatchedCounts(1);
     }
 
-    public function testSetWithoutTimeout()
+    public function test_dispatch_with_custom_timeout()
     {
-        $async = async(function () {
+        AsyncHandler::fake();
+
+        AsyncHandler::timeout(10)->dispatch(function () {
             echo "test";
-        })->withoutTimeout();
+        });
 
-        $reflection = new \ReflectionClass($async);
+        AsyncHandler::assertDispatchedCounts(2);
 
-        $this->assertNull($reflection->getProperty('timeout')->getValue($async));
+        AsyncHandler::assertExecutedCommandContains('sleep 10');
     }
 }

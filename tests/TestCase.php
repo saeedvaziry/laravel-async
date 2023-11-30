@@ -7,10 +7,7 @@ use SaeedVaziry\LaravelAsync\LaravelAsyncServiceProvider;
 
 class TestCase extends Orchestra
 {
-    /**
-     * Add the service provider in test environment
-     */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             LaravelAsyncServiceProvider::class,

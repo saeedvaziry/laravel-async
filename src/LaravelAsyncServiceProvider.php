@@ -9,15 +9,12 @@ class LaravelAsyncServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //
+        $this->app->bind('async-handler', function () {
+            return new AsyncProcess();
+        });
     }
 
     public function boot(): void
-    {
-        $this->registerCommands();
-    }
-
-    private function registerCommands(): void
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
