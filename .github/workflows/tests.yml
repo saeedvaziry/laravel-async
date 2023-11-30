@@ -13,8 +13,17 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.1, 8.2 ]
-        laravel: [ ^9.0, ^10.0 ]
+        include:
+          - php: 8.0
+            laravel: ^9.0
+          - php: 8.1
+            laravel: ^9.0
+          - php: 8.2
+            laravel: ^9.0
+          - php: 8.1
+            laravel: ^10.0
+          - php: 8.2
+            laravel: ^10.0
 
     steps:
       - uses: actions/checkout@v2
