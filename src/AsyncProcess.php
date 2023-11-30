@@ -52,7 +52,7 @@ class AsyncProcess
 
         if ($this->timeout && $pid) {
             $killCommand = sprintf(
-                'sleep %d && kill %d 2>&1 > /dev/null &',
+                '(sleep %d && kill %d) 2>&1 > /dev/null &',
                 $this->timeout,
                 $pid
             );
