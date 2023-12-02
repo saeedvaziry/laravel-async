@@ -19,6 +19,10 @@ AsyncHandler::dispatch(function () {
 info("dispatched the process!");
 ```
 
+## Demo
+
+https://youtu.be/0q8ki5JiD2o?si=Pi1X5zV5oM6Ktae3
+
 ## How it works?
 
 You can call it a hack or a trick! but Laravel Async uses the background process of the OS to run your code.
