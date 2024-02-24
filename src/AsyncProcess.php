@@ -3,6 +3,7 @@
 namespace SaeedVaziry\LaravelAsync;
 
 use Illuminate\Support\Facades\Process;
+use Laravel\SerializableClosure\Exceptions\PhpVersionNotSupportedException;
 use Laravel\SerializableClosure\SerializableClosure;
 
 class AsyncProcess
@@ -25,6 +26,9 @@ class AsyncProcess
         return $this;
     }
 
+    /**
+     * @throws PhpVersionNotSupportedException
+     */
     public function dispatch(mixed $object): void
     {
         if ($object instanceof \Closure) {
@@ -32,7 +36,8 @@ class AsyncProcess
         }
 
         $this->command = sprintf(
-            'php %s laravel-async:exec %s 2>&1 > /dev/null &',
+            '%s %s laravel-async:exec %s 2>&1 > /dev/null &',
+            config('laravel-async.php_path'),
             base_path('artisan'),
             escapeshellarg(serialize($object))
         );

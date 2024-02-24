@@ -32,7 +32,8 @@ class AsyncProcessFake
         }
 
         $command = sprintf(
-            'php %s laravel-async:exec %s 2>&1 > /dev/null &',
+            '%s %s laravel-async:exec %s 2>&1 > /dev/null &',
+            config('laravel-async.php_path'),
             base_path('artisan'),
             escapeshellarg(serialize($object))
         );
