@@ -42,4 +42,26 @@ class AsyncProcessTest extends TestCase
 
         AsyncHandler::assertExecutedCommandContains('sleep 10');
     }
+
+    public function test_dispatch_with_default_php_binary()
+    {
+        $binary = PHP_BINARY;
+
+        AsyncHandler::fake();
+
+        AsyncHandler::dispatch(fn () => 'test');
+
+        AsyncHandler::assertExecutedCommandContains($binary);
+    }
+
+    public function test_dispatch_with_custom_php_binary()
+    {
+        config()->set('laravel-async.php_path', '/path/to/php');
+
+        AsyncHandler::fake();
+
+        AsyncHandler::dispatch(fn () => 'test');
+
+        AsyncHandler::assertExecutedCommandContains('/path/to/php');
+    }
 }

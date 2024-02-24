@@ -12,6 +12,9 @@ class LaravelAsyncServiceProvider extends ServiceProvider
         $this->app->bind('async-handler', function () {
             return new AsyncProcess();
         });
+
+        // merge config file
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-async.php', 'laravel-async');
     }
 
     public function boot(): void
@@ -21,5 +24,10 @@ class LaravelAsyncServiceProvider extends ServiceProvider
                 ExecCommand::class,
             ]);
         }
+
+        // publish config
+        $this->publishes([
+            __DIR__.'/../config/laravel-async.php' => config_path('laravel-async.php'),
+        ], ['laravel-async-config', 'laravel-config']);
     }
 }
