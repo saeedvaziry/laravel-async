@@ -41,6 +41,29 @@ You can install the package via Composer:
 composer require saeedvaziry/laravel-async
 ```
 
+## Configuration
+
+To publish the configuration file, you can run the following command:
+
+```bash
+php artisan vendor:publish --provider="SaeedVaziry\LaravelAsync\LaravelAsyncServiceProvider"
+```
+
+This will create a `laravel-async.php` file in your `config` directory.
+
+**php_path**
+
+The path to the PHP executable.
+The default value which is the path to the PHP binary should work for CLI usage.
+However, If you want to use it in web, You should set the path to the PHP binary because the default value will
+be the path to the web server's PHP binary like php-fpm.
+
+You can also set via the `.env` file.
+
+```dotenv
+LARAVEL_ASYNC_PHP_PATH=/path/to/php
+```
+
 ## Usage
 
 The usage is very simple and straightforward. You can provide the Closure or your Laravel Job class to the `AsyncHandler` facade.
