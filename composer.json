@@ -1,6 +1,6 @@
 {
     "name": "saeedvaziry/laravel-async",
-    "description": "Laravel Async",
+    "description": "Run asynchronous code in Laravel without waiting for results",
     "type": "library",
     "license": "MIT",
     "authors": [
