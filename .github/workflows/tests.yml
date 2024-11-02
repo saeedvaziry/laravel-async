@@ -45,4 +45,4 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run Tests
-        run: vendor/bin/phpunit
+        run: composer un-script test
