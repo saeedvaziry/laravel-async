@@ -36,6 +36,8 @@ You can call it a hack or a trick! but Laravel Async uses the background process
 
 It provides a simple Laravel Console Command that unserializes your code and runs it in the background of the OS.
 
+Do note, because we do not wait for the async code to finish, you should read/write the results of the async code using other ways, e.g. through a database.
+
 ## Supported OS
 
 Currently, it only supports Linux and Unix-based operating systems.
