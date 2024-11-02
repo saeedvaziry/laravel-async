@@ -1,5 +1,12 @@
 # Laravel Async
 
+[![Packagist License][packagist-license-image]][packagist-url]
+[![Packagist Version][packagist-version-image]][packagist-url]
+[![Packagist Downloads][packagist-downloads-image]][packagist-stats-url]
+[![PHP Dependency Version][php-version-image]][packagist-url]
+[![GitHub Actions Workflow Status][php-build-status-image]][github-actions-url]
+[![GitHub Repo Stars][github-stars-image]][github-repo-url]
+
 https://github.com/saeedvaziry/laravel-async/assets/61919774/069b733a-7307-40ce-80c2-d5c29543cff4
 
 Laravel Async is a simple package for Laravel that enables you to run your code asynchronously without using
@@ -138,3 +145,15 @@ Please feel free to submit an issue or open a PR.
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[packagist-url]: https://packagist.org/packages/saeedvaziry/laravel-async
+[packagist-stats-url]: https://packagist.org/packages/saeedvaziry/laravel-async/stats
+[github-repo-url]: https://github.com/saeedvaziry/laravel-async
+[github-actions-url]: https://github.com/saeedvaziry/laravel-async/actions/workflows/tests.yml
+
+[packagist-license-image]: https://img.shields.io/packagist/l/saeedvaziry/laravel-async?style=plastic
+[packagist-version-image]: https://img.shields.io/packagist/v/saeedvaziry/laravel-async?style=plastic
+[packagist-downloads-image]: https://img.shields.io/packagist/dm/saeedvaziry/laravel-async?style=plastic
+[php-version-image]: https://img.shields.io/packagist/dependency-v/saeedvaziry/laravel-async/php?style=plastic&label=PHP
+[php-build-status-image]: https://github.com/saeedvaziry/laravel-async/actions/workflows/tests.yml/badge.svg
+[github-stars-image]: https://img.shields.io/github/stars/saeedvaziry/laravel-async
