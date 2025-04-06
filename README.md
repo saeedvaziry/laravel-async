@@ -1,5 +1,12 @@
 # Laravel Async
 
+[![Packagist License][packagist-license-image]][packagist-url]
+[![Packagist Version][packagist-version-image]][packagist-url]
+[![Packagist Downloads][packagist-downloads-image]][packagist-stats-url]
+[![PHP Dependency Version][php-version-image]][packagist-url]
+[![GitHub Actions Workflow Status][php-build-status-image]][github-actions-url]
+[![GitHub Repo Stars][github-stars-image]][github-repo-url]
+
 https://github.com/saeedvaziry/laravel-async/assets/61919774/069b733a-7307-40ce-80c2-d5c29543cff4
 
 Laravel Async is a simple package for Laravel that enables you to run your code asynchronously without using
@@ -28,6 +35,8 @@ https://youtu.be/0q8ki5JiD2o?si=Pi1X5zV5oM6Ktae3
 You can call it a hack or a trick! but Laravel Async uses the background process of the OS to run your code.
 
 It provides a simple Laravel Console Command that unserializes your code and runs it in the background of the OS.
+
+Do note, because we do not wait for the async code to finish, if you need to know the results of your async code, you should read/write the results using other ways, e.g. through a database.
 
 ## Supported OS
 
@@ -138,3 +147,15 @@ Please feel free to submit an issue or open a PR.
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[packagist-url]: https://packagist.org/packages/saeedvaziry/laravel-async
+[packagist-stats-url]: https://packagist.org/packages/saeedvaziry/laravel-async/stats
+[github-repo-url]: https://github.com/saeedvaziry/laravel-async
+[github-actions-url]: https://github.com/saeedvaziry/laravel-async/actions/workflows/tests.yml
+
+[packagist-license-image]: https://img.shields.io/packagist/l/saeedvaziry/laravel-async?style=plastic
+[packagist-version-image]: https://img.shields.io/packagist/v/saeedvaziry/laravel-async?style=plastic
+[packagist-downloads-image]: https://img.shields.io/packagist/dm/saeedvaziry/laravel-async?style=plastic
+[php-version-image]: https://img.shields.io/packagist/dependency-v/saeedvaziry/laravel-async/php?style=plastic&label=PHP
+[php-build-status-image]: https://github.com/saeedvaziry/laravel-async/actions/workflows/tests.yml/badge.svg
+[github-stars-image]: https://img.shields.io/github/stars/saeedvaziry/laravel-async
